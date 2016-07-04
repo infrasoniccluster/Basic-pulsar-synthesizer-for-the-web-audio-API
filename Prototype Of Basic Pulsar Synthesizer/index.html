@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<!-- saved from url=(0056)http://webaudiodemos.appspot.com/oscilloscope/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+   
+    <title>Prototype Working Of A Basic Pulsar Synthesizer</title>
+ 
+    <script src="sketch.js" type="text/javascript"></script>
+    <script src="./Oscilloscope and Pulse-Width control_files/audio.js"></script>
+    <script src="./Oscilloscope and Pulse-Width control_files/oscilloscope.js"></script>
+    <script src="./Oscilloscope and Pulse-Width control_files/ui.js"></script>
+    <script src="oscillators.js" type="text/javascript"></script>
+ 
+  </head>
+  
+  <body>
+ <h1>Prototype Of A Basic Pulsar Synthesizer</h1>
+ 
+ <p1>This code is borrowed and reworked from Chris Wilson's <a href="http://webaudiodemos.appspot.com/oscilloscope/index.html">Oscillscope</a></href> in webaudiodemos.appspot.com</p1>  <br>
+ <p1>Press the "Play" to trigger a single pulsar. The duty cycle control will shorten and lengthen <br>
+ the waveform. The sliders labled "vp" sets the volume at specific scheduled time points with a 0 <br>
+ to 1 amplitude value. This is used to form an amplitude envelope. The "Length" sets the length of <br>
+ the pulsar ranging from 0.1 to 150 milliseconds. The frequency slider changes the frequency value of <br>
+ an oscillator separate from the two pulsewidth oscillators which are modulating the value of a gain node.  
+ </p1>
+<br>
+<br>
+<div> 
+ <div> 
+ <p2>
+   
+   To make a proper pulsar sound set vp2, 3 and 4 to their minimum and raise the vp1 slider. Next set the <br>
+   length slider to a really low setting, but not too low as there will be no sound. Next adjust the <br>
+   frequency slider then click on the "Play" button.
+   
+ </p2>
+ <br>
+<br>
+<h2>
+  BUG NOTE: Move the frequency slider (to anywhere) before clicking the <br>
+  "Play" button, other wise no sound will be played.
+</h2>
+ </div>
+ </div>
+ 
+    <p><button onclick="pushme();">Be quiet!</button></p>   
+    
+    <p><button onclick="toggle();">Play</button></p>
+   
+    <p>Duty cycle control: <input id="dutycycle" type="range" value="0.5" min="0.0" max="1.0" step="0.01" onchange="dutycyclechange()" oninput="dutycyclechange()"></p>
+  
+    <!-- <p>Point 1 vol <input id="volpoint1" type="range" value="0.1" min="0.0" max="1.0" step="0.01"></p> -->
+
+<form>
+  
+  <label for="vp1">vp1</label>
+  <input type="range" min="0" max="1" step="0.001" 
+  value="0.3" id="vp1" name="vp1">
+  
+  <label for="vp2">vp2</label>
+  <input type="range" min="0" max="1" step="0.001" 
+  value="0.3" id="vp2" name="vp2">
+ 
+  <label for="vp3">vp3</label>
+  <input type="range" min="0" max="1" step="0.001" 
+  value="0.3" id="vp3" name="vp3">
+  
+  <label for="vp4">vp4</label>
+  <input type="range" min="0" max="1" step="0.001" 
+  value="0.3" id="vp4" name="vp4">
+  
+  <label for="length">Length</label>
+  <input type="range" min="0.01" max="0.200" step="0.001" 
+  value="0.150" id="length" name="length">
+  
+  <label for="f">Frequency</label>
+  <input type="range" min="1.0" max="1000.0" step="0.1" 
+  value="100.0" id="f" name="f" onchange="changeFreq()" ></input>
+  
+</form>  
+ 
+
+ 
+   </body>
+   </html>
