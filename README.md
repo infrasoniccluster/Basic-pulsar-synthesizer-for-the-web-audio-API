@@ -64,6 +64,7 @@ buggy in firefox
 how to trigger many of them instead of click a button
 
 
-
+The Prototype can be found here:
+https://infrasoniccluster.github.io/Basic-pulsar-synthesizer-for-the-web-audio-API/
 
  
