@@ -59,9 +59,7 @@ There is also a frequency slider which controls the frequency value of an oscill
 
 
 
-bugs
-buggy in firefox 
-how to trigger many of them instead of click a button
+ 
 
 
 The Prototype can be found here:
