@@ -177,7 +177,7 @@ sound = audioContext.currentTime;
     
     finalvol.gain.linearRampToValueAtTime( volpoint4 , sound - 0.020 + len);
     
-    finalvol.gain.linearRampToValueAtTime( 0.0 , sound + len);
+    finalvol.gain.linearRampToValueAtTime( 0.0 , sound + len ) ;
  
  
 }
