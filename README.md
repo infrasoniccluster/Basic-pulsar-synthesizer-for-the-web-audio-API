@@ -67,3 +67,8 @@ The Prototype can be found here:
 https://infrasoniccluster.github.io/Basic-pulsar-synthesizer-for-the-web-audio-API/
 
  
+# Second Prototype
+The second prototype of this basic pulsar synth uses a buffer with a grain window shape (such as a gaussian) to modulate the amplitude of a sine tone. This buffer is set to loop at a 0.1 rate so that each pulsaret can be clear heard.
+
+It can be found hear:
+https://infrasoniccluster.github.io/Basic-pulsar-synthesizer-for-the-web-audio-API/Second%20Prototype%20Of%20A%20Pulsar%20Synthesizer/
