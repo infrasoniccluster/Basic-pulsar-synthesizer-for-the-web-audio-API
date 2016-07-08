@@ -97,61 +97,6 @@ function createPWMOsc(freq, dutyCycle) {
 	return pwm;
 }
 
-var pwmOsc;
-
-function setupAudio( obj ) {
-
-	window.AudioContext = window.AudioContext || window.webkitAudioContext;
-	audioContext = new AudioContext();
-
-	obj.analyser = audioContext.createAnalyser();
-	obj.analyser.fftSize = 2048;
-
-	myOscilloscope = new Oscilloscope(obj.analyser, 512, 256);
-
-var osc2 = audioContext.createOscillator();
-var vol =  audioContext.createGain();
-
-var osc3 = audioContext.createOscillator();
-var vol3 =  audioContext.createGain();
-
- finalvol = audioContext.createGain();
-
-osc3.connect(vol3);
-osc3.type = 'sawtooth';
-osc3.frequency.value = 2;
-
-vol3.gain.value = 0;
-vol3.connect(finalvol.gain);
-
-var tone = parseFloat(document.getElementById("f").value);
-console.log(tone);
-osc2.start(0);
-osc3.start(0);
-
-osc2.connect(vol);
-osc2.frequency.value = tone;
-
-vol.gain.value = 0.05;
-
-
-vol.connect(finalvol);
-
-finalvol.connect(audioContext.destination);
-
-pwmOsc=createPWMOsc(440,.5);
-pwmOsc.output.connect(vol.gain);
- 
- 
-finalvol.connect(obj.analyser);
-	
-pwmOsc.start(audioContext.currentTime+0.05);
-
-
-finalvol.gain.value = 0.0;
-
-}
-
 
 function toggle() {
   
@@ -177,8 +122,6 @@ time = audioContext.currentTime;
     finalvol.gain.linearRampToValueAtTime( volpoint4 , time - 0.020 + len);
     
     finalvol.gain.linearRampToValueAtTime( 0.0 , time + len);
- 
- 
 }
 
 
