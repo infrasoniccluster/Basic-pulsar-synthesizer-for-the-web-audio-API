@@ -24,7 +24,8 @@ So far I have reworked an example of an oscillscope and a duty cycle web audio s
  ```javascript
 function toggle() {
   
-var volpoint1 = parseFloat(document.getElementById("vp1").value); // vp stands for "volume point" and the number is their point in time
+var volpoint1 = parseFloat(document.getElementById("vp1").value); // vp stands for "volume point"  
+
 var volpoint2 = parseFloat(document.getElementById("vp2").value); // you can set the volume for each point to form an envelope for the pulsar.
 var volpoint3 = parseFloat(document.getElementById("vp3").value);
 var volpoint4 = parseFloat(document.getElementById("vp4").value);
