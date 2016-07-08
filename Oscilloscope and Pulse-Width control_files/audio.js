@@ -4,8 +4,7 @@ var myBuffer = null;
 var osc = null;
 
 var finalvol;
-var button;
-var sound;
+var time;
 
 
 function setDutyCycle(amt) {
@@ -163,21 +162,21 @@ var volpoint4 = parseFloat(document.getElementById("vp4").value);
 
 var len = parseFloat(document.getElementById("length").value); 
 
-sound = audioContext.currentTime;
+time = audioContext.currentTime; 
  
-    finalvol.gain.cancelScheduledValues(sound);
+    finalvol.gain.cancelScheduledValues(time);
    
-    finalvol.gain.setValueAtTime(finalvol.gain.value, sound);
+    finalvol.gain.setValueAtTime(finalvol.gain.value, time);
     
-    finalvol.gain.linearRampToValueAtTime( volpoint1 , sound - 0.080 + len);
+    finalvol.gain.linearRampToValueAtTime( volpoint1 , time - 0.080 + len);
     
-    finalvol.gain.linearRampToValueAtTime( volpoint2 , sound - 0.060 + len);
+    finalvol.gain.linearRampToValueAtTime( volpoint2 , time - 0.060 + len);
     
-    finalvol.gain.linearRampToValueAtTime( volpoint3 , sound - 0.040 + len);
+    finalvol.gain.linearRampToValueAtTime( volpoint3 , time - 0.040 + len);
     
-    finalvol.gain.linearRampToValueAtTime( volpoint4 , sound - 0.020 + len);
+    finalvol.gain.linearRampToValueAtTime( volpoint4 , time - 0.020 + len);
     
-    finalvol.gain.linearRampToValueAtTime( 0.0 , sound + len);
+    finalvol.gain.linearRampToValueAtTime( 0.0 , time + len);
  
  
 }
