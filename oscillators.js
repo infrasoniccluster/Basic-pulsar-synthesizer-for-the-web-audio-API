@@ -1,4 +1,4 @@
- var pwmOsc;
+var pwmOsc;
 var mainOsc; 
 var tone;
  
