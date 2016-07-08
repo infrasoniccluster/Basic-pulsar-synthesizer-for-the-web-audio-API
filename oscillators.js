@@ -49,8 +49,6 @@ pwmOsc.output.connect(vol.gain);
 
 pwmOsc.start(audioContext.currentTime+0.05);
 
- 
-
 /*
 // modulation oscillator
 var modOsc = audioContext.createOscillator();
@@ -62,7 +60,6 @@ modOsc.frequency.value = 2;
 vol2.gain.value = 0.3;
 modOsc.start(0); 
  */
-  
 }
 
 
@@ -72,5 +69,4 @@ tone = parseFloat(document.getElementById("f").value);
 console.log(tone);
 
 mainOsc.frequency.value = tone;
-
 }
