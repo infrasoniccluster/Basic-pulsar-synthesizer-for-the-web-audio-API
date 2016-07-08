@@ -19,7 +19,7 @@ See below a diagram from the second page of Curtis Roads' article demonstrating 
 
 This basic pulsar synthesizer will consist of Three envelopes for controlling the parameters of the duty cycle, the rate of emission and the pulsaret envelope. There will also be another parameter to change the frequency value of the pulsarets, perhaps using a slider. 
 
-So far I have reworked an example of an oscillscope and a duty cycle web audio sketch. I downloaded this from http://webaudiodemos.appspot.com/oscilloscope/index.html, which was designed by Chris Wilson. The variations I made to this was by adding an envelope to the final gain node that is triggered by a button. This envelope was designed using several schduled timepoints, where each point is set at a different point in time and each point has a different amplitude value. 
+So far I have reworked an example of an oscillscope and a duty cycle web audio sketch. I downloaded this from http://webaudiodemos.appspot.com/oscilloscope/index.html, which was designed by Chris Wilson. The variations I made to this was by adding an envelope to the final gain node that is triggered by a button. This envelope was designed using several scheduled timepoints, where each point is set at a different point in time and each point has a different amplitude value. 
 
  ```javascript
 function toggle() {
