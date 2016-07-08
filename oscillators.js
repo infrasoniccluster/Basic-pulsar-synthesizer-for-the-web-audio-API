@@ -4,12 +4,12 @@ var tone;
  
 function setupAudio( obj ) {
 
-	window.AudioContext = window.AudioContext || window.webkitAudioContext;
-	audioContext = new AudioContext();
+window.AudioContext = window.AudioContext || window.webkitAudioContext;
+audioContext = new AudioContext();
 
-	obj.analyser = audioContext.createAnalyser();
-	obj.analyser.fftSize = 2048;
-  myOscilloscope = new Oscilloscope(obj.analyser, 512, 256);
+obj.analyser = audioContext.createAnalyser();
+obj.analyser.fftSize = 2048;
+myOscilloscope = new Oscilloscope(obj.analyser, 512, 256);
 
 
 // Creating an oscillator and two gain nodes
