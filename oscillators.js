@@ -18,13 +18,15 @@ mainOsc = audioContext.createOscillator(); // creating main oscillator
 var vol =  audioContext.createGain(); // creating gain node for main oscillator
 
 finalvol = audioContext.createGain(); // Creating a final gain node that will be automated to create an envelope. 
-                                     //The code for the envelope is located in the "toggle()" function in "audio.js" at the bottom of the page
+                                     //The code for the envelope is located in the "toggle()" function in "audio.js" 
+                                     //at the bottom of the page
 
 
 // making the connections
 mainOsc.connect(vol); 
 
-vol.connect(finalvol); // connnecting the "vol" gain node to the "finalvol" so the "mainOsc" oscillator's signal is put through an envelope 
+vol.connect(finalvol); // connnecting the "vol" gain node to the "finalvol" so the "mainOsc" oscillator's signal is 
+                       //put through an envelope 
 
 finalvol.connect(obj.analyser);
 
