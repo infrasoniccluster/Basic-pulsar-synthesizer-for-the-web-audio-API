@@ -56,7 +56,7 @@ This is borrowed and reworked from http://stackoverflow.com/questions/15862155/w
 
 Each of the four timepoint's amplitude is controlled by a slider (labled "vp" for volume point) ranging from 0 to 1. The slider labled "length" controls the overall length of the evelope ranging from 10 to 200 milliseconds, if you set this really low and play around with the volume point sliders by lowering about two to their minimum and increasing two to a high value you might get a interesting pulsar sound. 
 
-There is also a frequency slider which controls the frequency value of an oscillator I added to the oscilloscope example. This will work as the frequency value of the individual pulsarets. However there is a bug with this, before you can trigger any sounds you must first move the frequncy slider anywhere you like to activate it so that when you click on the "play" button it should tigger the envelope otherwise it wont work.   
+There is also a frequency slider which controls the frequency value of an oscillator I added to the oscilloscope example as well as the frequency value of the "pwmOsc" oscillators. This will work as the frequency value of the individual pulsarets. However there is a bug with this, the "pwmOsc" oscillators only change when you move the frequency slider and then refresh the page in Firefox only. It does not change the frequency of them if it is moved in real time, because moving the slider in Firefox and then refreshing the page resets the "value" tag for the range slider in the HTML document. This is not the case with Safari and Chrome because when the page is refreshed the frequency slider reverts back to the set value set of 100.        
 
 
 
