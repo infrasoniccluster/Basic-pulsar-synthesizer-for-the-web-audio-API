@@ -14,7 +14,7 @@ Pulsar synthesis is a type of granular synthesis which produces sounds similar t
 
 These two main parameters (rate of pulsar emission and duty cycle ratio) are controlled separately with envelopes of their own which can be any arbitrary shape allowing for simultaneous manipulation. Basic pulsar synthesis has a third envelope which can also be any arbitrary shape, this is known as the pulsaret envelope. This envelope limits each pulsaret in the time domain and has a strong affect on the pulsar train spectrum. Examples of shapes this envelope can have are: rectangular, Gaussian, linear attack and decay and exponential attack and decay.  
 
-See below a diagram from the second page of Curtis Roads' article demonstrating the "anatomy" of a pulsar. 
+See below a diagram from the second page of Curtis Roads' article demonstrating the anatomy of a pulsar. 
 ![screen shot 2016-07-01 at 15 59 57](https://cloud.githubusercontent.com/assets/19801391/16525797/e9afc698-3f62-11e6-9c79-fecbce6e6aeb.png)
 
 This basic pulsar synthesizer will consist of Three envelopes for controlling the parameters of the duty cycle, the rate of emission and the pulsaret envelope. There will also be another parameter to change the frequency of the individual pulsarets. 
