@@ -71,7 +71,7 @@ https://infrasoniccluster.github.io/Basic-pulsar-synthesizer-for-the-web-audio-A
 The second prototype of this basic pulsar synth uses a buffer with a grain window shape to modulate the amplitude of a sine tone. The shape used in this prototype is a Gaussian shape, which can be seen below. The buffer is set to loop at a 0.1 rate so that each pulsaret can be clear heard.
 
 It can be found hear:
-https://infrasoniccluster.github.io/Basic-pulsar-synthesizer-for-the-web-audio-API/Second%20Prototype%20Of%20A%20Pulsar%20Synthesizer/
+https://infrasoniccluster.github.io/Basic-pulsar-synthesizer-for-the-web-audio-API/Second%20Prototype%20Of%20A%20Pulsar%20Synthesizer/index.html
 
 Screenshot of the Gaussian waveform used in the buffer:
 ![gaussian waveform](https://cloud.githubusercontent.com/assets/19801391/16769512/dc157570-47fd-11e6-9a9a-e52c5acfc15a.png)
