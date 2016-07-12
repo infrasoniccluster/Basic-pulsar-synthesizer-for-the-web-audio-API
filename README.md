@@ -75,3 +75,9 @@ https://infrasoniccluster.github.io/Basic-pulsar-synthesizer-for-the-web-audio-A
 
 Screenshot of the Gaussian waveform used in the buffer:
 ![gaussian waveform](https://cloud.githubusercontent.com/assets/19801391/16769512/dc157570-47fd-11e6-9a9a-e52c5acfc15a.png)
+
+
+#The first and second draft combined
+Here is a draft combining both the duty cycle engine with the looping grain window buffer. https://infrasoniccluster.github.io/Basic-pulsar-synthesizer-for-the-web-audio-API/Pulsar%20Synth%20With%20Duty%20Cycle/
+
+The scheduled time envelope was removed as the gaussian wave shape is modulating the amplitude of the signal, so it is creating a gaussian shaped envelope. The sound file inside the buffer is double its length where the first half is the gaussian pulsaret and the second half is the silent part as a single pulsar is composed of a pulsaret followed by a space of silence which is described above in the "Basic Pulsar Synthesis" section above. This was done so that when you speed up the bufer playback rate the space of silence between each pulsaret will get smaller.    
