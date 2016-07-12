@@ -1,0 +1,43 @@
+<!document html> 
+<html>
+
+<head>
+ <script src="ui.js"></script>
+    <script src="audio.js"></script>
+    <script src="oscilloscope.js"></script> 
+<button id="button" onclick="loadSound('audio/sound.wav')">load sound</button>
+<button id="button2" onclick="playSound()">play sound</button>
+
+</head>
+<body>
+  
+<h1>Second Prototype Of A Basic Pulsar Synthesizer </h1>
+
+<h2>NOTE: This Works Best In Firefox and Safari </h2>
+<p1>
+  This is another prototype of a pulsar synthesizer that uses a buffer which stores grain window shapes, such as<br>
+  gaussian, triangle, sinc, Hamming or any other arbitrary shape. In this prototype the buffer is storing <br>
+  a gaussian waveform which is modulating the value of a gain node that is also recieving a signal from a <br>
+  sine wave oscillator node. This creates amplitude modulation that sounds very much like a typical pulsar <br>
+  synthesizer. The buffer in this prototype is set to loop at a low play back rate of 0.1 so that each individual <br>
+  pulsaret can be clearly heard, where as at a play back rate of 1 the pulsarets fuse together forming a continious <br>
+  tone. 
+  
+  
+  <br> 
+  <br> 
+  
+  Click the "load sound" button first to load the waveshape and then click the "play sound" button.<br>
+  You will then hear a sine tone at 440Hz and its amplitude being modulated by a looping buffer with a gaussian <br>
+  grain window. <br>
+  The sound you hear is very similar to the default setting of a pulsar synthesizer known as "Pulsaret" by <br>
+  Alessandro Petrolati. Here is a link to a YouTube video where he demonstrates it: <a href="https://www.youtube.com/watch?v=iACjcISX4z0">Pulsaret_quick_start_1.mov</a></href> <br>
+  At about 0:09 it starts with a basic pulsar sound that is similar to the sound that is heard here in this page. 
+  
+  
+</p1>
+ 
+ <p><button onclick="pushme();">Be quiet!</button></p>
+    <p>Duty cycle control: <input id="dutycycle" type="range" value="0.5" min="0.0" max="1.0" step="0.01" onchange="dutycyclechange()" oninput="dutycyclechange()"></p>
+</body>
+</html>
