@@ -1,87 +1,357 @@
 <!DOCTYPE html>
-<!-- saved from url=(0056)http://webaudiodemos.appspot.com/oscilloscope/index.html -->
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-   
-    <title>Prototype Working Of A Basic Pulsar Synthesizer</title>
- 
-    
- <script src="./Oscilloscope and Pulse-Width control_files/audio.js"></script>
- <script src="./Oscilloscope and Pulse-Width control_files/oscilloscope.js"></script>
- <script src="./Oscilloscope and Pulse-Width control_files/ui.js"></script>
- <script src="oscillators.js" type="text/javascript"></script>
+<html>
 
- </head>
-  
- <body>
- <h1>Prototype Of A Basic Pulsar Synthesizer</h1>
- 
- <p1>This code is borrowed and reworked from Chris Wilson's <a href="http://webaudiodemos.appspot.com/oscilloscope/index.html">Oscillscope</a></href> in webaudiodemos.appspot.com</p1>  <br>
- <p1>Press the "Play" to trigger a single pulsar. The duty cycle control will shorten and lengthen <br>
- the waveform. The sliders labled "vp" sets the volume at specific scheduled time points with a 0 <br>
- to 1 amplitude value. This is used to form an amplitude envelope. The "Length" slider sets the <br>
- length of the pulsar ranging from 10 to 200 milliseconds. The slider labled "Frequency" changes <br>
- the value of both the "mainOsc" oscillator and "pwmOsc" oscillators. But there is a bug with the <br>
- "pwmOsc" oscillators, which is noted below. To change these oscillators it is recommended that you <br>
-  use Firefox.
- </p1>
+<head>
+  <meta charset="UTF-8">
+  <title>Sparate Web Page</title>
+  <script src="libraries/p5.js" type="text/javascript"></script>
+
+  <script src="libraries/p5.dom.js" type="text/javascript"></script>
+  <script src="libraries/p5.sound.js" type="text/javascript"></script>
+
+  <script src="sketch.js" type="text/javascript"></script>
+</head>
+<body>
+
+
+
 
 <br>
 <br>
-<div> 
-<div> 
- <h2>
-  BUG NOTE: When moved the frequency slider will change the value of the "mainOsc" oscillator but will only <br> 
-  change the frequency of the "pwmOsc" oscillators in Firefox when you refresh the page. As when you refresh <br>
-  the page in Chrome or Safari the slider reverts back to its initial setting so you cannot change the <br>
-  frequency of the "pwmOsc" oscillators.
-</h2>
 <br>
 <br>
-<p2>
-   
-   To make a proper pulsar sound set vp2, 3 and 4 to their minimum and raise the vp1 slider. Next set the <br>
-   length slider to a really low setting, but not too low as there will be no sound. Next adjust the <br>
-   frequency slider then click on the "Play" button.
-</p2>
-</div>
-</div>
- 
-    <p><button onclick="pushme();">Be quiet!</button></p>   
+
+
+  <ol>
+    <li>
+      <h5>Initial Preset</h5>
+      <p id="text1">Initial preset</p>
+      <p id="a">The audio file for this example is a square wave signal being enveloped by a Gaussian waveshape
+        <br> at 3Hz. The timbre of the sound is a sine wave oscillator waveshaped to sound like a square.
+        <br> To hear this just click the On button.
+        <br>
+        <br> The steps are as follows:
+        <br>
+        <b>Click:</b>On
+      </p>
+      <img src="Images/InitialPreset.png" width=500px id="img1">
+    </li>
+    <li>
+
+
+
+
+
+
+      <h5>Infrasonic range to the continuous tone range</h5>
+      <p id="text2">A train of pulsars going from the infrasonic range to the continuous tone range.
+        <br> It starts at 3Hz and moves all the way up to 100Hz and back down to 0.3Hz. By moving the
+        <br> moving the Infrasonic - Fundamental Frequency slider all the way to the right the train of
+        <br> pulsar will begin to fuse together into a continuous tone when it reaches 20Hz. The Audio Range -
+        <br> Fundamental Frequency slider is then moved all the way up to 100Hz where the frequency of
+        <br> the pulsaret envelope oscillator will start to modulate the frequency of the Pulsaret
+        <br> oscillator. The fundamental frequency is then lowered to a frequency of 0.3Hz.
+        <br>
+        <br> The steps are as follows:
+        <br>
+        <b>Fundamental Frequency 0 to 20Hz - Infrasonic Range:</b> 3 to 20Hz
+        <br>
+        <b>Fundamental Frequency 20 to 100Hz - Audio Range</b> 20 to 100Hz
+        <br>
+        <b>Fundamental Frequency 20 to 100Hz - Audio Range</b> 100 to 20Hz
+        <br>
+        <b>Fundamental Frequency 0 to 20Hz - Infrasonic Range:</b> 20 to 0.3Hz
+        <br>
+        <br>
+        <br> The picture below shows a spectrogram and waveform view of the sound file. It starts with
+        <br> with "prickly" or "spiky" structure and gradually overtime they fuse together into a "block"
+        <br> This "block" area is where the individual pulsars are fused together into a tone in the middle
+        <br> of the picture. They are separated into individual pulsars again because the fundamental frequency
+        <br> is lowered back down again.
+      </p>
+      <img src="Images/infrasonictoaudio.png" width=500px id="img2">
+    </li>
+
+
+
+
+    <li>
+      <h5>Duty-Cycle Silence Ratio Slider  </h5>
+      <p id="text3"> In this example you will hear the Duty-Cycle Silence Ratio Slider being moved from
+        <br> 0.0 to -2.1. As the slider is slowly moved left the harmonics of the signal begin to change. This is
+        <br> because the duty-cycle length of the square wave signal is being shortened to a narrower and narrower
+        <br> length.
+        <br>
+        <br> The steps are as follows:
+        <br>
+        <b>Duty cycle-Silence Ratio:</b>slowly move in the left direction until the signal silent
+        <br>
+        <br>
+      </p>
+      <p>The image below shows a pulsaret with the duty cycle silence ratio slider at 0.0 </p>
+      <img src="Images/FirstPulsaretSpec.png" width=80px id="img3">
+      <img src="Images/FirstPulsaretWave.png" width=180px id="img3">
+
+      <p>The image below shows a pulsaret with the duty cycle silence ratio slider at -9.6 </p>
+      <img src="Images/LastPulsaretSpec.png" width=80px id="img4">
+      <img src="Images/LastPulsaretWave.png" width=180px id="img4">
+    </li>
+
+
+
+
+
+
+
+
+
+    <li>
+      <h5>Duty-Cycle Silence Ratio Buffer Envelope</h5>
+      <p id="text4">In this example the fundamental is decreased to 1.05 and the buffer for the envelope of
+        <br> the duty-cycle silence ratio is engaged by pressing the "Load Buffer" button and then the "Play Buffer"
+        <br> button. The harmonic content of the pulsarets are modulating at various rates because the Duty cycle-Silence Ratio Buffer Rate
+        <br> slider is being increased to its maximum level. The fundamental frequency is then increased to 15Hz so the
+        <br> envelope that is changing the duty cycle is much more noticable. The rate of the buffer-envlope
+        <br> is then decreased to 0.002. By listening carefully there is a wavering sound from the duty-cycle silence ratio
+        <br> varying gradually over time.
+        <br>
+        <br>
+        <br> The steps are as follows:
+        <br>
+        <b>Fundamental Frequency 0 to 20Hz - Infrasonic Range:</b> 3 to 1.05Hz
+        <br>
+        <b>Click:</b> Load Buffer and Play Buffer
+        <br>
+        <b>Duty cycle-Silence Ratio Envelope Rate - 0.002 to 0.3:</b> increase from 0.002 to 0.3
+        <br>
+        <b>Fundamental Frequency 0 to 20Hz - Infrasonic Range:</b> Increase to 15Hz
+        <br>
+        <b>Duty cycle-Silence Ratio Envelope Rate - 0.002 to 0.3:</b> increase from 0.3 to 0.002
+        <br>
+      </p>
+      <p>The image below shows a pulsaret from this sound file that shows its harmonic content cut off by the varying
+        <br> envelope.
+      </p>
+      <img src="Images/dutycyclechop.png" width=180px id="img5">
+    </li>
     
-    <p><button onclick="toggle();">Play</button></p>
+ 
+    <li>
+      <h5>Duty-Cycle Silence Ratio Overlap</h5>
+      <p id="text5"> This sound file demonstrates the overlap effect that happen when the varying duty cycle silence ratio
+        <br> is set at the edge of silencing the signal. To set up the synth to play something like this do the following:
+        <br>
+        <br> The steps are as follows:
+        <br>
+        <b>Duty cycle-Silence Ratio slider:</b> 1.8
+        <br>
+        <b>Click:</b> Load Buffer and then Play Buffer
+        <br>
+        <br> The buffer envelope will affect the pulsarets by either be muting them or cutting them off in mid waveform, as shown below:</p>
+
+      <img src="Images/OverlapWaveform.png" width=110px id="img6">
+
+      <p id="text6"> By moving the Duty cycle-Silence Ratio Envelope Rate slider, this will mute out some of the pulsarets in the train
+        <br> and will cut other pulsarets off in mid waveform. This produces a very rhythmic and percussive sound to the pulsar train.
+        <br> The fundamental frequency can also be increased to create a throbbing bundle of pulsars. By moving the main duty cycle silence
+        <br> ratio slider to 1.8 and playing around with the play back rate of the buffer and the fundamental frequency a lot of interesting rhythmic
+        <br> structures can be created.</p>
+    </li>
+
+  
+  
+  
+  
+  
+  
+  
+  <li>
+   <h5>Different Shapes of Duty-Cycle Silence Ratio Buffer Envelope</h5>
    
-    <p>Duty cycle control: <input id="dutycycle" type="range" value="0.5" min="0.0" max="1.0" step="0.01" onchange="dutycyclechange()" oninput="dutycyclechange()"></p>
+   <p id="text7">This example will demonstrate the different waveshapes shapes that can be inserted into the buffer to modulate the duty cycle <br>
+   Silence Ratio. The waveshape used in the preset is a gaussian waveshape show below in a waveform view:<br></p>
+   
   
-<form>
+    <img src="Images/GaussianShape.png" width=610px id="img7"> <br>
+   
+   This is the shape that modulates the the DCOffsetGain node to affect the duty cycle. This shape can be played back at different rates by <br>
+   using the "Duty cycle-Silence Ratio Envelope Rate" sliders. The Gaussian shape can be heard in Demonstration 4. Any arbitrary shape can <br>
+   be used, however there are some popular "arbitrary" shapes used to emphasize different types of spectra and timbres. <br> 
+   There are a few audio and image examples below: <br>
+   <br>
+ <p id="text8">  <img src="Images/line.png" width=610px id="img8"> <br>
+    The figure above shows a line going -1 to 1. This will modulate the <br> 
+   DCOffsetGain between this range, by starting at -1 and moving all the <br>
+   way up to +1 and then looping back round to -1 again.<br></p>
+   <br>
+   
+   
+   
+  <p id="text9"> <img src="Images/tri.png" width=610px id="img9"> <br> 
+  The figure above shows a variation on the line. The line starts at 0 <br>
+  and moves up to +1 and instead of flicking back to 0 again it goes in the <br>
+  opposite direction back down to 0 again. This sound can be clearly heard in <br>
+  the example, it produces an interesting effect where the duty cycle is <br>
+  varying back and forth between the two extermes 0 and +1.<br></p>
+  <br>
   
-  <label for="vp1">vp1</label>
-  <input type="range" min="0" max="1" step="0.001" 
-  value="0.3" id="vp1" name="vp1">
   
-  <label for="vp2">vp2</label>
-  <input type="range" min="0" max="1" step="0.001" 
-  value="0.3" id="vp2" name="vp2">
+ <p id="text10"> <img src="Images/threelineseg.png" width=610px id="img10"> <br>
+  The figure above shows a three stage line segment that  is very much like <br>
+  the triangle where it rises from 0 to +1 and the goes back down again. In <br>
+  this example when it reaches +1 it stay there for a length of time before <br>
+  decaying to 0 again. The audio demonstration is in two parts one with the <br> 
+  first part with a fundamnetal frequency of 3Hz and the second part at 20Hz.<br> 
+  This is to demonstrate the envelope in both the inframsonic and continuous <br>
+  tone range, the shape of this envelope is vclearly heard in the continuous <br>
+  range. 
+  </p>
+  <br>
+  
+ <p id="text11"><img src="Images/expo.png" width=610px id="img11"> <br>
+   This figure show a shape with an exponential decay curve. This is very much <br>
+   like the triangle shape only it has a short attack and a longer decay time <br>
+   that moves smoothly downwards as opposed to a liner decay that goes straight<br>
+   down.<br></p>
+   
+   
+   
+   
+   
+  <p id="text12"><img src="Images/Noise.png" width=610px id="img12"> <br>
+  This figure show an extremely short burst of noise (about 1ms long). This is <br>
+  to modulate the DCOffsetGain node in a very chaotic way. By speeding up the <br>
+  playback of the buffer this would produce a very erratic change in the duty <br> 
+  cycle silence ratio between -0.8 and +0.8. By slowing it down this would <br>
+  a more clearer sound but the duty cycle silence ratio is varying back and <br>
+  forth in an uneven pattern. In the first part of this example the fundamental <br>
+  frequency is at 3Hz with the playback rate of the buffer at 0.3, this produces <br>
+  noisy train of pulsars as the DCOffsetGain is modulating rapidly. In the second<br> 
+  part the fundamental frequency is at 12Hz with the playback rate of the buffer<br>
+  at a low setting of 0.0001299. This produces a smoother varying duty cycle <br>
+  silence ratio. <br></p>
+  </li><br>
+  
+  <p>Any sound file can be used to modulate the duty cycle silence ratio, the user <br>
+  can even customize their own by using audio editors such as Audcaity and then<br> 
+  importing them into the buffer to modulate the DCOffsetGain node.<br>
+  <br>
+  The "expodec" and the "three stage line segment" sound files were borrowed from <br>
+  Nathan Wolek's granular toolkit LowKeyNW (2014). </p>
+
+
+ <li>
+<h5>Sound files used for pulsaret waveform</h5>
+ <p id="text13">A soundfile can be used instead of an oscillator for the pulsaret waveform. This allows for many different varieties of timbres<br> 
+ to because any sound file of any length can be used. As the pulsaret envelope shapes this file over time the play back rate, volume and pitch <br>
+ can be changed to sculpt the sound. Sound files of short duration seem to be the most effective at creating pulsarets, although long sound files <br>
+ can be useful in creating interesting rhythmic structures. There are tewo examples below, one short file and one long file:
  
-  <label for="vp3">vp3</label>
-  <input type="range" min="0" max="1" step="0.001" 
-  value="0.3" id="vp3" name="vp3">
-  
-  <label for="vp4">vp4</label>
-  <input type="range" min="0" max="1" step="0.001" 
-  value="0.3" id="vp4" name="vp4">
-  
-  <label for="length">Length</label>
-  <input type="range" min="0.01" max="0.200" step="0.001" 
-  value="0.150" id="length" name="length">
-  
-  <label for="f">Frequency</label>
-  <input type="range" min="1.0" max="1000.0" step="0.1" 
-  value="100.0" id="f" name="f" onchange="changeFreq()" oninput="f" ></input>
-  
-</form>  
+ For the short file a 100ms long snippet of a metallic ringing sound from the tines of a fork is eveloped by a Gaussian pulsaret envelope. In the <br>  
+ sound file the fundamental is increased to about 12Hz than the play back rate is increased to about 3.1 and is then dcreased to 0.6. <br>
+ The fundamental is then decrased to 1.7Hz, to achieve an enharmonic metallic swell. <br>
+<br> 
+The steps are as follows:<br>
+<b>Short Sound File</b> <br>
+<b>Fundamental Frequency 0 to 20Hz - Infrasonic Range:</b> 3 - 12Hz <br>  
+<b>Playback Rate of Pulsaret Waveform:</b> 0.0 to 3.1 to 0.6   <br>
+<b>Fundamental Frequency 0 to 20Hz - Infrasonic Range:</b> 12 - 1.7Hz <br>  </p>
+<br> 
+<br> 
+
+ <p id="text14">For the long sound file a recording of a voice was used. As speech is not a periodic waveform this produced a uneven pulsar train as certain words  
+are cut out by the pulsaret envelope and others are enveloped which are heard in the pulsar train. The example starts with the sound file playing 
+at a fast rate of 3.8 and the fundamental at 12Hz is then moved down to 5.6Hz. The playback rate of the pulsaret waveform buffer is the decreased to 
+1.2 which then reveals what the voice is saying, "I am not speaking english". 
+<br>
  
+The steps are as follows: <br>
+<b>Long Sound File</b> <br>
+<b>Playback Rate of Pulsaret Waveform slider:</b> 0.0 to 3.8 <br>
+<b>Fundamental Frequency 0 to 20Hz - Infrasonic Range:</b> 3Hz to 12Hz to 5.7Hz <br>
+<b>Playback Rate of Pulsaret Waveform slider:</b>3.8 to 1.4 <br></li>
+ <p id="text15b">This long sound file is downloaded from freesoung.org <a href=https://www.freesound.org/people/krzysiunet/sounds/345836/>(krzysiunet 2016)</a> [last accessed 17th of August 2016].</p> 
+ 
+ 
+<li>
+<h5>Arbirary waveshapes for the pulsaret waveform</h5>
+ <p id="text15">The pulsaret wveform can be shaped in many different ways with the WaveShaperNode it is connected to. By using many different transfer functions this can affect the timbre and texture
+ of the oscillator's signal. Below there are two types of transfer functions used.</p>
+ 
+ <p id="text16">Decaying multicycle sinusoud <br>
+ <img src="Images/multicycle.png" width=210px id="img10"><br>
+ Above is a figure of a multicycle sinusoid. This is the shape of the pulsaret oscillator (which is a sine wave) is getting shaped to. In the example you will hear the un-waveshaped signal, which is
+ just a sine wave oscillator being enveloped by a gaussian curve, then in the second half you will hear the waveshaped signal. A decaying Multicycle sinusoud is one of many arbitrary waveforms  suggested 
+ by Curtis Roads in his book Microsound (2001,p.140)</p><br>
+ <br>
+ 
+ <br>
+  <p id="text17">Multiple Squares <br>
+  <img src="Images/squares.png" width=210px id="img11"><br>
+ The figures shows a very jagged shape that the sine waveform is transformed to, this produces a hollow sounding square wave.</p><br>   
+ </li>
+ <br>
+ 
+
+<li>
+  <h5>Arbirary waveshapes for the pulsaret envelope</h5>
+ <p id="text18"> This is the part of the synth that forms the envelope for the pulsarets. This is done using the WaveShaperNode of the Web Audio API. With the use of transfer functions we can form many
+ arbitrary envelopes, such as the onbe described by Roads (2001, p.141). These pulsaret envelopes affect the timbre and texture of the pulsarets becuase of the shape that is applied to them. <br>
+ Below is a few pulsaret envelopes: <br>
+  <br>
+  Sinc Function<br>
+  <img src="Images/sinc.png" width=210px id="img12"><br>
+  <br>
+  The figure above shows a sinc function that is acting as the envelope for the same decaying multicycle sinusoud used in demonstration 8. In the recording the fundamnetal frequency is set at 8.5Hz. </p><br> 
+  
+  <p id="text19">Gaussian Function<br>
+    <img src="Images/gaussianWave.png" width=210px id="img12"><br>
+    
+    <br>
+    The figure above show a Gaussian curve that is used to shape the pulsarets. The shape has a tendency to shape waveform in such a way that it focuses most of the frequencies of the formant in a very condensed spot 
+    that is set by the duty cycle silence ratio, this is noted in (Roads 2001, p146). In the next sound example the Gaussian envelope is shaping a decaying multicycle sinusoud, a waveform and spectrogram is shown below <br> 
+  
+  
+     <img src="Images/specGaussMulti.png" width=510px id="img13">
+    <img src="Images/waveGaussMulti.png" width=510px id="img14"></p1><br>
+    <br>
+<p id="text20">  There is a second version of this which is the same pulsaret envelope but the WaveShaperNode for the decaying multicycle sinusoud is disengaged leaving just the clean sound of the sine wave from the pulsaret oscillator.        
+   <img src="Images/specgaussClean.png" width=510px id="img15">
+    <img src="Images/waveGaussClean.png" width=510px id="img16"><br>
+    Note in the spectrogram figure a clean and clear separation between the pulsarets and the overall shape is very similar to the Gaussian curve above.</p1><br>
+    <br>
+  
+</p1>
+</li>
+
+<li>
+  
+</li>
+
+
+
+</ol>
+<style>
+      p {
+        background-color: red;
+        color: black;
+        padding: 18px;
+        font-family: verdana;
+        }
+      
+      button {
+        background-color: grey;
+      }
+</style>
+
+
+
+
+
+
+
+
+
 </body>
+
 </html>
- 
